@@ -283,7 +283,7 @@ func (cc *PenumbraProvider) getAnchor(ctx context.Context) (*penumbracrypto.Merk
 }
 
 func parseEventsFromABCIResponse(resp abci.ExecTxResult) []provider.RelayerEvent {
-	events := make([]provider.RelayerEvent, len(resp.Events))
+	events := make([]provider.RelayerEvent, 0, len(resp.Events))
 
 	for _, event := range resp.Events {
 		attributes := make(map[string]string)
